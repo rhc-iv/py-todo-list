@@ -42,11 +42,20 @@ def add():
     return redirect(url_for('index'))
 
 
-# Create a route for 'complete.html' to collect completed entries:
+# Create a route for "complete.html" to collect completed entries:
 @app.route('/complete/<id>')
 def complete(id):
     todo = Todo.query.filter_by(id=int(id)).first()
     todo.complete = True
+    db.session.commit()
+    return redirect(url_for('index'))
+
+
+# Create a route for "remove.html" to delete completed entries:
+@app.route('/remove/<id>')
+def remove(id):
+    todo = Todo.query.filter_by(id=int(id)).first()
+    db.session.delete(todo)
     db.session.commit()
     return redirect(url_for('index'))
 
