@@ -1,1 +1,67 @@
+body {
+    background-color: #3E4451;
+    color: #D19A66;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: justify;;
+}
 
+h2, h3 {
+    color: #6699CC;
+    margin-left: 40px;
+}
+
+.fa-icons {
+    color: #98C379;
+    font-size: 2.0em;
+    font-style: bold;
+    margin-left: 40px;
+}
+
+.add-item {
+    margin-left: 40px;
+}
+
+input[type="text"] {
+    width: 450px;
+}
+
+input[type="submit"] {
+    background-color: #BE5046;
+    border-color: #E06C75;
+    color: #FFF;
+    cursor: pointer;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+
+.pending {
+    color: #BE5046;
+}
+
+.enter {
+    color: #6699CC;
+    font-size: 10pt;
+}
+
+.button1:hover {
+    background-color: #98C379;
+    border-color: #99CC99;
+}
+
+.button1:active {
+    background-color: #98C379;
+    border-color: #99CC99;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.done {
+    color: #98C379;
+}
