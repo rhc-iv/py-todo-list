@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-  <link href="static/css/styles.css" rel="stylesheet" type="text/css"/>
+  <link href="static/styles.css" rel="stylesheet" type="text/css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
@@ -43,6 +43,10 @@
     {% for todo in complete %}
     <li style="font-size: 13pt">
       <span class="done"><i class="fa-solid fa-square-check fa-lg"></i></span>&nbsp;&nbsp;&nbsp;{{ todo.text }}
+      <a
+          href="{{ url_for('remove', id=todo.id) }}"><span class="remove">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <i class="fa-solid fa-trash-can fa-sm"></i>&nbsp;&nbsp;Delete this Item...
+      </span></a>
     </li>
     {% endfor %}
   </ul>
