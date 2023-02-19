@@ -1,1 +1,52 @@
+<!DOCTYPE html>
 
+<html lang="en">
+
+<head>
+  <link href="static/css/styles.css" rel="stylesheet" type="text/css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <meta charset="UTF-8"/>
+  <script src="https://kit.fontawesome.com/d22cf1bdb0.js" crossorigin="anonymous"></script>
+  <title>My Flask-Driven TO-DO App</title>
+</head>
+
+<body>
+<div class="fa-icons">
+  <i class="fa-solid fa-list-check fa-2xl"></i>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TO-DO LIST
+</div>
+<h3>Add new item:</h3>
+<div class="add-item">
+  <form action="{{ url_for('add') }}" method="POST">
+    <p>
+      <input type="text" name="todoitem"/>&nbsp;&nbsp;&nbsp;<input class="button1" type="submit" value="Add"/>
+    </p>
+  </form>
+</div>
+<div>
+  <h3>Pending Items:</h3>
+  <ul>
+    {% for todo in incomplete %}
+    <li style="font-size: 13pt">
+      <span class="pending"><i class="fa-solid fa-square-xmark fa-lg"></i></span>&nbsp;&nbsp;&nbsp;{{ todo.text }}
+      <a
+          href="{{ url_for('complete', id=todo.id) }}"><span class="enter">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+          class="fa-solid fa-arrow-right-to-bracket fa-sm"></i>&nbsp;&nbsp;Send to Completed Items...
+        </span></a>
+    </li>
+    {% endfor %}
+  </ul>
+  <h3>Completed Items:</h3>
+  <ul>
+    {% for todo in complete %}
+    <li style="font-size: 13pt">
+      <span class="done"><i class="fa-solid fa-square-check fa-lg"></i></span>&nbsp;&nbsp;&nbsp;{{ todo.text }}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+</body>
+
+</html>
